@@ -1,4 +1,4 @@
-# Wastewater-Dasboard
+# WEPP
 
 This repository contains the interactive visualization dashboard for the [WEPP](https://github.com/TurakhiaLab/WEPP/tree/main) (Wastewater-based Epidemiology using Phylogenetic Placements) Tool. The dashboard enables researchers and public health officials to explore detected haplotypes, inspect read-level alignments, and visualize unaccounted mutations in the context of a global phylogeny.
 
