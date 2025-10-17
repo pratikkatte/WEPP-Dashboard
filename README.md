@@ -129,7 +129,8 @@ cd /path/to/your/results
 docker run -v $PWD/results:/app/taxonium_backend/results \
   -e PROJECT_NAME=SARS_COV_2_real \
   -p 80:80 \
-  wepp-dashboard
+  wepp-dashboard:<tag>
+  # Where <tag> is either "latest", "x86_64", or "aarch64", depending on your platform
 ```
 
 **Parameters:**
