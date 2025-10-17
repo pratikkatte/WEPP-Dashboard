@@ -120,23 +120,29 @@ serve -s dist -l 5173
 
 ### Running with Docker
 
-Navigate to the directory containing your WEPP results:
-
 ```bash
+# Navigate to the folder containing your WEPP results
 cd /path/to/your/results
 
 # Run the dashboard
-docker run -v $PWD/results:/app/taxonium_backend/results \
+# Replace <image> with either:
+#   pratikkatte7/wepp-dashboard:x86_64   (for Intel / AMD)
+#   pratikkatte7/wepp-dashboard:aarch64  (for Apple Silicon / ARM)
+#   wepp-dashboard                       (if you built it locally)
+
+docker run -it \
+  -v "$PWD/results:/app/taxonium_backend/results" \
   -e PROJECT_NAME=SARS_COV_2_real \
   -p 80:80 \
-  wepp-dashboard:<tag>
-  # Where <tag> is either "latest", "x86_64", or "aarch64", depending on your platform
+  <image>
 ```
 
-**Parameters:**
-- `-v $PWD/results:/app/taxonium_backend/results` — Mount your results directory
-- `-e PROJECT_NAME=SARS_COV_2_real` — Set the project name that you want to load. 
-- `-p 80:80` — Map port 80 (change as needed)
+| Flag                                            | Description                                                                                                                    |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `-v $PWD/results:/app/taxonium_backend/results` | Mounts your local `results` folder (from WEPP) into the container so the dashboard can access the project data                 |
+| `-e PROJECT_NAME=SARS_COV_2_real`               | Specifies which project folder inside `results/` to load (e.g., `SARS_COV_2_real`)                                             |
+| `-p 80:80`                                      | Maps container port **80** (NGINX) to host port **80** — change to `-p 8080:80` or any other port if port 80 is already in use                   |
+
 
 Access the dashboard at: `http://localhost` (or `http://localhost:PORT` if using a different port)
 
