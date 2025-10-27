@@ -1,0 +1,41 @@
+worker_processes  1;
+${USER_DIRECTIVE};
+pid ${WEPP_DASHBOARD_PATH}/nginx.pid;
+error_log ${WEPP_DASHBOARD_PATH}/nginx-error.log;
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    default_type application/octet-stream;
+    sendfile on;
+    keepalive_timeout 65;
+    include       mime.types;
+
+    server {
+        listen ${FRONTEND_PORT};
+        server_name localhost;
+
+        root ${WEPP_DASHBOARD_PATH}/Dashboard/dist;
+        index index.html;
+
+        location /taxonium/uploads/ {
+            alias ${WEPP_DASHBOARD_PATH}/results/;
+            autoindex off;
+            add_header Cache-Control "public, max-age=86400";
+            etag on;
+            if_modified_since exact;
+        }
+
+        location /taxonium/ {
+            proxy_pass http://localhost:${BACKEND_PORT}/;
+        }
+
+        location / {
+            try_files $uri $uri/ /index.html;
+        }
+
+        error_page 404 /index.html;
+    }
+}
