@@ -1021,6 +1021,8 @@ async function selectNodes(uploadedFilenames, project_name = null) {
               var haplotype_proportion = ''
               var haplotype_lineage = ''
               var uncertain_haplotype = []
+              var coverage_proportion = ''
+              var haplotype_distance = ''
 
               entry.data.forEach((d)=>{
                 if(d.tag === 'ID'){
@@ -1040,8 +1042,11 @@ async function selectNodes(uploadedFilenames, project_name = null) {
                   haplotype_lineage = d.value.replace('Z:', '')
                 }else if (d.tag == 'UH'){
                   uncertain_haplotype = d.value.replace('Z:','').split(',')
+                } else if (d.tag == 'HC'){
+                  coverage_proportion = d.value.replace('Z:', '')
+                } else if (d.tag == 'HD'){
+                  haplotype_distance = d.value.replace('Z:', '')
                 }
-               
               })
               fileDict[node_name] = {
                 "filename": `${filename}`,
@@ -1050,6 +1055,8 @@ async function selectNodes(uploadedFilenames, project_name = null) {
                 "HS": haplotype_proportion, 
                 'HL':haplotype_lineage,
                 'UH': uncertain_haplotype,
+                'HC': coverage_proportion,
+                'HD': haplotype_distance,
               }
             });
 

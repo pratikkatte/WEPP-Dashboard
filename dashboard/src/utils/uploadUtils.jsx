@@ -128,13 +128,13 @@ const FileUpload = ({setSelectedFile, createDefaultSearch, mark_nodeRef, updateQ
             const response =  await axios.post(
                   `${config.RESULT}${results[idx]}`
             )
-            console.log('response', response)
+            // console.log('response', response)
     
             if (response.status === 200) {
               const selected_nodes = response.data.response
               var project_config = response.data.config
     
-              console.log("config updating",project_config )
+              // console.log("config updating",project_config )
               setProjectName(project_config)
               handleFileProcessing(selected_nodes)
             }
@@ -159,6 +159,8 @@ const FileUpload = ({setSelectedFile, createDefaultSearch, mark_nodeRef, updateQ
         const haplotype_prop = {}
         const haplotype_lineage = {}
         const uncertain_nodes = {}
+        const hc_lineage = {}
+        const hd_lineage = {}
     
         const zoom_to_indexes = [];
         for (let i = 0; i < nodes.length; i++) {
@@ -166,8 +168,10 @@ const FileUpload = ({setSelectedFile, createDefaultSearch, mark_nodeRef, updateQ
             haplotype_prop[nodes[i]] = filenames_nodes[nodes[i]]['HS']
             haplotype_lineage[nodes[i]] = filenames_nodes[nodes[i]]['HL']
             uncertain_nodes[nodes[i]] = filenames_nodes[nodes[i]]['UH']
+            hc_lineage[nodes[i]] = filenames_nodes[nodes[i]]['HC']
+            hd_lineage[nodes[i]] = filenames_nodes[nodes[i]]['HD']
         }
-        const default_search = createDefaultSearch(haplotype_prop, haplotype_lineage);
+        const default_search = createDefaultSearch(haplotype_prop, haplotype_lineage, hc_lineage, hd_lineage);
 
         const query = {
               srch: JSON.stringify(default_search),
