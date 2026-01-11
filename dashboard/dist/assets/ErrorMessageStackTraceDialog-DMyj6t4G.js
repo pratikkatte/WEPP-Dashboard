@@ -1,2 +1,0 @@
-import{g as s,al as i}from"./rpcWorker-BQYX6MpU.js";function g(a,c){return c.forEach(function(r){r&&typeof r!="string"&&!Array.isArray(r)&&Object.keys(r).forEach(function(e){if(e!=="default"&&!(e in a)){var t=Object.getOwnPropertyDescriptor(r,e);Object.defineProperty(a,e,t.get?t:{enumerable:!0,get:function(){return r[e]}})}})}),Object.freeze(a)}var o=i(),f=s(o),u=g({__proto__:null,default:f},[o]);export{u as E,f as a};
-//# sourceMappingURL=ErrorMessageStackTraceDialog-DMyj6t4G.js.map

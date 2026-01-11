@@ -1,0 +1,2 @@
+import{G as u,g as i}from"./rpcWorker-XHi80nRI.js";function f(o,n){return n.forEach(function(r){r&&typeof r!="string"&&!Array.isArray(r)&&Object.keys(r).forEach(function(t){if(t!=="default"&&!(t in o)){var e=Object.getOwnPropertyDescriptor(r,t);Object.defineProperty(o,t,e.get?e:{enumerable:!0,get:function(){return r[t]}})}})}),Object.freeze(o)}var a=u(),m=i(a),c=f({__proto__:null,default:m},[a]);export{c as R};
+//# sourceMappingURL=ReturnToImportFormDialog-6pAYdtsD.js.map

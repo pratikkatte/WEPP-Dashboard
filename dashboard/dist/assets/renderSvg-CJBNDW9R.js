@@ -1,0 +1,2 @@
+import{x as o,u as i,R as e,a0 as l}from"./index-Dvh6CKFc.js";async function c(t,n,a){await o(()=>!!t.regionCannotBeRenderedText);const{offsetPx:r}=i.getContainingView(t);return e.createElement(e.Fragment,null,e.createElement("g",null,await a(n)),e.createElement("g",{transform:`translate(${Math.max(-r,0)})`},e.createElement(l,{model:t,orientation:"left",exportSVG:!0})))}export{c as renderSvg};
+//# sourceMappingURL=renderSvg-CJBNDW9R.js.map
