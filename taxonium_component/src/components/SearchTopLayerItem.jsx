@@ -134,8 +134,9 @@ function SearchTopLayerItem({ singleSearchSpec, myKey, search, config, uncertain
                 
                 {singleSearchSpec?.hs_value && (
                   <div className="text-sm">
-                    <span className="font-semibold">Haplotype Proportion:</span> {singleSearchSpec.hs_value}%
-                    <span className="font-semibold"> Haplotype Lineage:</span> {singleSearchSpec.hl_value}
+                    <span className="font-semibold">Proportion:</span> {singleSearchSpec.hs_value}%
+                    <span className="font-semibold"> Lineage:</span> {singleSearchSpec.hl_value}
+                    <span className="font-semibold"> Coverage:</span> {singleSearchSpec.hc_value}%
                   </div>
                 )}
                 {
@@ -192,7 +193,7 @@ function SearchTopLayerItem({ singleSearchSpec, myKey, search, config, uncertain
           }} 
             onClick={() => setIsOpen(!isOpen)}
           >
-            <strong style={{ fontSize: '14px', color: '#333' }}>Uncertain Haplotypes</strong>
+            <strong style={{ fontSize: '14px', color: '#333' }}>Uncertain Haplotypes</strong> (Maximum Nucleotide distance: {singleSearchSpec.hd_value})
             {isOpen ? <FaArrowUp size={14} /> : <FaArrowDown size={14} />}
           </div>
           {isOpen && (

@@ -46,7 +46,7 @@ function HaplotypesDropdown({ haplotypes, onSelect }) {
         onClick={() => setOpen(o => !o)}
         type="button"
       >
-        Possible Haplotypes
+        Parsimonious Haplotype Candidates
         <span className="ml-2">{open ? "▲" : "▼"}</span>
       </button>
       {open && (
