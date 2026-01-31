@@ -148,7 +148,7 @@ docker run -it \
   -v "$PWD/results:/app/taxonium_backend/results" \
   -e PROJECT_NAME=SARS_COV_2_real \
   -p 80:80 \
-  <image>
+  pratikkatte7/wepp-dashboard
 ```
 
 | Flag                                            | Description                                                                                                                    |
