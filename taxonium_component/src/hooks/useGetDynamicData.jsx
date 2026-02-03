@@ -93,11 +93,11 @@ function useGetDynamicData(backend, colorBy, viewState, config, xType) {
             boundsForQueries,
 
             (result) => {
-              console.log(
-                "got result, bounds were",
-                boundsForQueries,
-                " result is "
-              );
+              // console.log(
+              //   "got result, bounds were",
+              //   boundsForQueries,
+              //   " result is "
+              // );
 
               setDynamicData((prevData) => {
                 const new_result = {

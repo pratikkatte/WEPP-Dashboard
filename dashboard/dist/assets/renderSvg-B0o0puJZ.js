@@ -1,2 +1,0 @@
-import{x as s,u as c,R as t,Y as i}from"./index-Dvh6CKFc.js";async function g(e,a,n){await s(()=>!!e.stats&&!!e.regionCannotBeRenderedText);const{needsScalebar:r,stats:o}=e,{offsetPx:l}=c.getContainingView(e);return t.createElement(t.Fragment,null,t.createElement("g",null,await n(a)),r&&o?t.createElement("g",{transform:`translate(${Math.max(-l,0)})`},t.createElement(i,{model:e,orientation:"left"})):null)}export{g as renderSvg};
-//# sourceMappingURL=renderSvg-B0o0puJZ.js.map

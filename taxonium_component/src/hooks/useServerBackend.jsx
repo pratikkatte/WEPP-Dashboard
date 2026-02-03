@@ -45,7 +45,6 @@ function useServerBackend(backend_url, sid, url_on_fail) {
             }
           });
 
-          console.log("go data yay - ", response.data)
           setResult(response.data);
         })
         .catch(function (error) {

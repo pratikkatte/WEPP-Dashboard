@@ -8,7 +8,6 @@ import { formatNumber } from "../utils/formatNumber";
 import { ClipLoader } from "react-spinners";
 import DisplayHaplotype from './DisplayHaplotypes'
 import Modal from "react-modal";
-import { useEffect } from "react";
 
 
 function SearchTopLayerItem({ singleSearchSpec, myKey, search, config, uncertainNodes }) {
@@ -18,7 +17,6 @@ function SearchTopLayerItem({ singleSearchSpec, myKey, search, config, uncertain
   const [isOpen, setIsOpen] = useState(false);
   const [issearched, setIssearched] = useState(false);
 
-  console.log("uncertainNodes", uncertainNodes)
   const num_results =
     this_result && this_result.result
       ? this_result.result.total_count

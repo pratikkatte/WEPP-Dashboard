@@ -1,2 +1,0 @@
-import{o as r,R as e,a as o,S as a,c as i}from"./index-Dvh6CKFc.js";const c=e.forwardRef(function({message:t},n){return e.createElement("div",{ref:n},e.isValidElement(t)?t:t?e.createElement(i.SanitizedHTML,{html:String(t)}):null)}),u=r(function({contents:l}){return l?e.createElement(o.Suspense,{fallback:null},e.createElement(a,null,e.createElement(c,{message:l}))):null});export{u as default};
-//# sourceMappingURL=ArcTooltip-B1lv33b4.js.map
