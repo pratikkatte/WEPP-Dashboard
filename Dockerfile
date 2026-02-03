@@ -24,7 +24,6 @@ COPY dashboard/dist /usr/share/nginx/html
 COPY nginx/nginx-react.conf /etc/nginx/sites-available/default
     
 
-ENV PROJECT_NAME='SARS_COV_2_real'
 ENV NODE_MEMORY_LIMIT=4096
 
 # Expose NGINX port

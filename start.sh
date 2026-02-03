@@ -6,27 +6,24 @@ ln -sfn "$(realpath ./results)" /srv/wepp/results
 
 if [ -f ./results/projects.json ]; then
   echo "[WEPP-Dashboard] Found projects.json, retrieving project information..."
-  read TAXONIUM_FILE_PATH TAXONIUM_SIZE < <(python3 -c "
+  read PROJECT_NAME TAXONIUM_FILE_PATH TAXONIUM_SIZE < <(python3 -c "
 import json
 with open('./results/projects.json') as f:
     data = json.load(f)
 max_size = 0
-for v in data.values():
+selected_project = None
+taxonium_file_path = ''
+for name, v in data.items():
     try:
         size = int(v.get('taxonium_size', 0))
+        tfp = v.get('taxonium_file_path', '')
         if size > max_size:
             max_size = size
+            selected_project = name
+            taxonium_file_path = tfp
     except Exception:
         continue
-k = '${PROJECT_NAME}'
-if k in data:
-    print(
-        data[k].get('taxonium_file_path', ''),
-        max_size,
-        sep=' '
-    )
-else:
-    print('Project name not found.', '')
+print(selected_project if selected_project else 'Project name not found.', taxonium_file_path, max_size, sep=' ')
 ")
   if [ -n "$TAXONIUM_FILE_PATH" ] && [ "$TAXONIUM_FILE_PATH" != "Project name not found." ]; then
     echo "[WEPP-Dashboard] Using project: '${PROJECT_NAME}'"
